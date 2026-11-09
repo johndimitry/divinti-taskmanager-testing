@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiVinti Tech - Tasks</title>
+  <style>
+    body {
+      background-color: #121212; /* Preto de fundo */
+      color: #FFFFFF; /* Texto Branco */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #1A1A1A;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(211, 47, 47, 0.2); /* Sombra avermelhada */
+      border-top: 5px solid #D32F2F; /* Linha de destaque Vermelha */
+      width: 350px;
+    }
+    h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+    }
+    h1 span {
+      color: #D32F2F; /* Destaque em Vermelho */
+    }
+    .input-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #333;
+      background-color: #222;
+      color: #fff;
+      border-radius: 4px;
+    }
+    input:focus {
+      outline: none;
+      border-color: #D32F2F;
+    }
+    button {
+      background-color: #D32F2F; /* Botão Vermelho */
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background-color: #B71C1C;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      background-color: #262626;
+      padding: 12px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      border-left: 3px solid #D32F2F;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>DiVinti <span>Tech</span></h1>
+    
+    <div class="input-group">
+      <input type="text" id="taskInput" data-testid="input-tarefa" placeholder="Nova tarefa da DiVinti...">
+      <button id="addBtn" data-testid="botao-adicionar">Criar</button>
+    </div>
+
+    <ul id="taskList" data-testid="lista-tarefas">
+      <li>Iniciar Projeto DiVinti Tech</li>
+    </ul>
+  </div>
+
+  <script>
+    const input = document.getElementById('taskInput');
+    const button = document.getElementById('addBtn');
+    const list = document.getElementById('taskList');
+
+    button.addEventListener('click', () => {
+      if (input.value.trim() !== '') {
+        const li = document.createElement('li');
+        li.textContent = input.value;
+        list.appendChild(li);
+        input.value = '';
+      }
+    });
+  </script>
+</body>
+</html>
